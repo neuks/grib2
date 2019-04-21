@@ -14,8 +14,8 @@ F: call wgrib2(n, strings)
 Options that are specific to callable wgrib2 are
 
  -close_persistent_file init X      close persistent file, X=filename CW2
- -persistent_file init X      makes file persistent if already opened, X=filename CW2
- -rewind_file     init X      rewinds file if already opened, X=filename, CW2
+ -persistent      init X      makes file persistent if already opened, X=filename CW2
+ -rewind_init     init X      rewinds file if already opened, X=filename, CW2
 
  -last2mem        inv> X Y    write last inv item to memory X=address of data Y=max # characters
  -import_mem      misc X Y    read memory for data, X=address of data, Y=number of grid points

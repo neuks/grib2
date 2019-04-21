@@ -3,7 +3,7 @@
 //#define DISABLE_TIMEZONE
 //#define USE_REGEX
 //#define USE_PNG
-//#define USE_G2CLIB
+#define USE_G2CLIB
 #define USE_TIGGE
 #define USE_OPENMP
 #define USE_IPOLATES 3

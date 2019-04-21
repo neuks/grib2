@@ -11,7 +11,7 @@
 
 CC=gcc
 CFLAGS=-Iinc -std=c99
-LDFLAGS=-Llib -lgeo -lgomp -lipolate -lgfortran
+LDFLAGS=-Llib -lgeo -lgomp -lipolate -lgfortran -lgrib2
 
 all:=$(patsubst %.c,%.o,$(wildcard *.c))
 code:=$(filter-out fnlist.o,$(all))
