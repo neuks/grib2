@@ -105,7 +105,7 @@ struct seq_file {
     long pos;
 };
 
-
+extern int cw2;
 
 const char *output_order_name(void);			/* returns text string of output order */
 
