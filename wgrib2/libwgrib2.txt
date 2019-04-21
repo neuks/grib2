@@ -1,0 +1,54 @@
+                                CW2, Callable wgrib2
+
+
+Wgrib2 can be called by a C and fortrans programs by linking in the appropriate libraries/subroutines.
+
+C: call wgrib2(int argc, char **argv);
+     same format as main program parameters
+
+F: call wgrib2(n, strings)
+   integer n
+   character (len=*) strings(n)
+   string(1)..string(n) are arguments to wgrib2
+
+Options that are specific to callable wgrib2 are
+
+ -close_persistent_file init X      close persistent file, X=filename CW2
+ -persistent_file init X      makes file persistent if already opened, X=filename CW2
+ -rewind_file     init X      rewinds file if already opened, X=filename, CW2
+
+ -last2mem        inv> X Y    write last inv item to memory X=address of data Y=max # characters
+ -import_mem      misc X Y    read memory for data, X=address of data, Y=number of grid points
+ -grid2mem        out  X Y Z  write grid to memory X=address of data, Y=address of #points Z=max # points
+
+Fortran comments:
+  I am quite satisfied with the non-CW2 fortran api for writing grib2.
+I expect an api for reading grib2 using CW2 in the future.
+
+
+
+--------------- sample C program ----------
+#include <stdio.h>
+
+int wgrib2(int argc, char **argv);
+
+int main() {
+        int w_argc, ierr;
+        char *w_argv[10];
+
+        w_argc=2;
+        w_argv[0] = "my program";
+        w_argv[1] = "-config";
+
+        ierr=wgrib2(w_argc, w_argv);
+	return ierr;
+}
+--------------- sample Fortran program ----------
+        character*100 lines(10)
+
+        lines(1) = 'ds.td.bin'
+        lines(2) = '-s'
+        call wgrib2(2,lines)
+        stop
+        end
+
